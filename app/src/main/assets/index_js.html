@@ -1,0 +1,42 @@
+<! DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>JS和Android交互</title>
+
+        <style>
+            button{
+                height: 36px;
+                width: 100%;
+                background: #98bf21;
+            }
+        </style>
+    </head>
+    <body>
+        <p>JS和Android交互</p>
+
+        <button onclick="invokeAppMethod()">JS调用App方法(不带参数)</button>
+        <br/>
+        <br/>
+        <button onclick="sendInfoToJava()">JS调用App方法(带参数)</button>
+
+        <script>
+            function sendInfoToJava(){
+                var name = '我是JS';
+                window.AndroidWebView.showInfoFromJs(name);
+            }
+
+            function invokeAppMethod(){
+                window.AndroidWebView.showInfoFromJs();
+            }
+
+            function showInfoFromAppWithMsg(msg){
+                alert("来自App的消息: "+msg);
+            }
+
+            function showInfoFromApp(){
+                alert("通过App调用JS");
+            }
+        </script>
+    </body>
+</html>
